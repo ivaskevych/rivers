@@ -59,6 +59,12 @@ if(isset($_POST['subject_id']) &&
       $value = round($value, 1);
     }
 
+    if ($subject_id == 8) {
+      $range_max[0] = null;
+      $range_min[0] = null;
+      $averages[0] = null;
+    }
+
     //$format_range_array
     for ($i=0; $i < sizeof($range_max); $i++) {
         $temp = array();
