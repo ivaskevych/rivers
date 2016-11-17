@@ -28,7 +28,7 @@ if(isset($_POST['subject_id']) &&
                     MIN(ZNO2015) AS `2015`,
                     MIN(ZNO2016) AS `2016`
                   FROM subjects
-                  WHERE subject_id = ".$subject_id." AND region_id != '26'");
+                  WHERE subject_id = ".$subject_id." AND region_id != '26' AND region_id != '27'");
     while($row = mysql_fetch_row($get_range_min))
     {
       $range_min = $row;
@@ -50,7 +50,7 @@ if(isset($_POST['subject_id']) &&
                     MAX(ZNO2016) AS `2016`
                   FROM subjects
                   WHERE subject_id = ".$subject_id."
-                  AND region_id != '26'");
+                  AND region_id != '26' AND region_id != '27'");
     while($row = mysql_fetch_row($get_range_max))
     {
       $range_max = $row;

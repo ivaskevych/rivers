@@ -6,9 +6,9 @@ $get_select_options_subject_region = mysql_query("SELECT DISTINCT subject, subje
 $get_select_options_region_region = mysql_query("SELECT DISTINCT region, region_id FROM subjects");
 
 //district
-$get_select_options_subject_district = mysql_query("SELECT DISTINCT subject, subject_id FROM district_test");
+$get_select_options_subject_district = mysql_query("SELECT DISTINCT subject, subject_id FROM district");
 
-$get_select_options_region_district = mysql_query("SELECT DISTINCT region, region_id FROM district_test");
+$get_select_options_region_district = mysql_query("SELECT DISTINCT region, region_id FROM district");
 
 ?>
 <!DOCTYPE HTML>

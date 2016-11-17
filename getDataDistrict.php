@@ -31,7 +31,7 @@ if(isset($_POST['subject_id']) &&
                     MIN(ZNO2014) AS `2014`,
                     MIN(ZNO2015) AS `2015`,
                     MIN(ZNO2016) AS `2016`
-                  FROM district_test
+                  FROM district
                   WHERE subject_id = ".$subject_id." AND region_id = ".$region_id_first."");
     while($row = mysql_fetch_row($get_range_min))
     {
@@ -52,7 +52,7 @@ if(isset($_POST['subject_id']) &&
                     MAX(ZNO2014) AS `2014`,
                     MAX(ZNO2015) AS `2015`,
                     MAX(ZNO2016) AS `2016`
-                  FROM district_test
+                  FROM district
                   WHERE subject_id = ".$subject_id." AND region_id = ".$region_id_first."");
     while($row = mysql_fetch_row($get_range_max))
     {
@@ -72,7 +72,7 @@ if(isset($_POST['subject_id']) &&
 
     //$city_sup
     $get_city_sup = mysql_query("SELECT ZNO2008, ZNO2009, ZNO2010, ZNO2011, ZNO2012, ZNO2013, ZNO2014, ZNO2015, ZNO2016
-                                FROM district_test
+                                FROM district
                                 WHERE subject_id = ".$subject_id." AND region_id = ".$region_id_first." AND district_id = ".$district_id_first."");
     while($row = mysql_fetch_row($get_city_sup))
     {
@@ -81,7 +81,7 @@ if(isset($_POST['subject_id']) &&
 
     //$city_sub
     $get_city_sub = mysql_query("SELECT ZNO2008, ZNO2009, ZNO2010, ZNO2011, ZNO2012, ZNO2013, ZNO2014, ZNO2015, ZNO2016
-                                FROM district_test
+                                FROM district
                                 WHERE subject_id = ".$subject_id." AND region_id = ".$region_id_first." AND district_id = ".$district_id_second."");
     while($row = mysql_fetch_row($get_city_sub))
     {
@@ -90,26 +90,26 @@ if(isset($_POST['subject_id']) &&
 
     //$subject
     $get_subject = mysql_query("SELECT subject
-                                FROM district_test
+                                FROM district
                                 WHERE subject_id = ".$subject_id." AND region_id = ".$region_id_first.""); //AND district_id =".$district_id_first."
     $names_subject = mysql_fetch_row($get_subject);
     $names_subject = $names_subject[0];
 
     $get__averages_title = mysql_query("SELECT region
-                                FROM district_test");
+                                FROM district WHERE region_id = ".$region_id_first."");
     $names_averages_title = mysql_fetch_row($get__averages_title);
     $names_averages_title = $names_averages_title[0];
 
     $names_range_title = "Всі райони області";
 
     $names_city_sup_name = mysql_query("SELECT district
-                                FROM district_test
+                                FROM district
                                 WHERE region_id = ".$region_id_first." AND district_id = ".$district_id_first."");
     $names_city_sup_name = mysql_fetch_row($names_city_sup_name);
     $names_city_sup_name = $names_city_sup_name[0];
 
     $get_city_sub_name = mysql_query("SELECT district
-                                FROM district_test
+                                FROM district
                                 WHERE region_id = ".$region_id_first." AND district_id = ".$district_id_second."");
     $names_city_sub_name = mysql_fetch_row($get_city_sub_name);
     $names_city_sub_name = $names_city_sub_name[0];
